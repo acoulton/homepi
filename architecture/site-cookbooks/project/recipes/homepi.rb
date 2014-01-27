@@ -8,3 +8,6 @@ cookbook_file "etc/modules" do
   user  "root"
   mode  0644
 end
+
+# Install wiringPi
+include_recipe "project::wiringpi"
