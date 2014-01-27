@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Run chef-solo to provision a particular role.
+# Usage provision {role}
+# eg: provision app-server
+
+# Don't accept unset variables
+set -o nounset
+# Exit on failed commands
+set -o errexit
+# Trap error exit and report failure
+function error_handler()
+{
+    echo "********************************************************"
+    echo "* PROVISIONING FAILED - SEE COMMAND OUTPUTS ABOVE      *"
+    echo "********************************************************"
+}
+trap 'error_handler' ERR
+
+# Build absolute path to this script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Install the berkshelf managed cookbooks and restore CWD
+pushd "$DIR/.."
+echo "Installing cookbooks from berkshelf configuration in $(pwd) to architecture/vendor-cookbooks"
+berks install --path architecture/vendor-cookbooks
+popd
+
+# Run Chef
+sudo $pass_env chef-solo -c "$DIR/config/solo.rb" -j "$DIR/config/$1.json"
