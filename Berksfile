@@ -3,3 +3,4 @@
 
 site :opscode
 
+cookbook 'python'
