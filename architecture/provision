@@ -27,4 +27,4 @@ berks install --path architecture/vendor-cookbooks
 popd
 
 # Run Chef
-sudo $pass_env chef-solo -c "$DIR/config/solo.rb" -j "$DIR/config/$1.json"
+sudo chef-solo -c "$DIR/config/solo.rb" -j "$DIR/config/$1.json"
