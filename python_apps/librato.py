@@ -44,7 +44,7 @@ except:
     print ""
     quit(-1)
 
-def send_librato(payload):
+def send_metrics(payload):
     url  = "https://metrics-api.librato.com/v1/metrics"    
     header = {"content-type": "application/x-www-form-urlencoded"}
     r = requests.post(url,

@@ -6,7 +6,7 @@
 import os
 import glob
 import time
-from librato import *
+import librato
 
 device_file = '/sys/bus/w1/devices/28-000004cd480f/w1_slave'
 
@@ -32,7 +32,7 @@ print "Current temp"
 print temp
 librato.send_metrics({
   "measure_time"      : int(time.time()),
-  "gauges[0][name]"   : "Water Temperature",
+  "gauges[0][name]"   : "water-temperature",
   "gauges[0][source]" : "Tank",
   "gauges[0][value]"  : temp
 })
