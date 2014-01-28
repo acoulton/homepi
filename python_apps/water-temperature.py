@@ -34,5 +34,6 @@ librato.send_metrics({
   "measure_time"      : int(time.time()),
   "gauges[0][name]"   : "Water Temperature",
   "gauges[0][source]" : "Tank",
+  "gauges[0][value]"  : temp
 })
 
