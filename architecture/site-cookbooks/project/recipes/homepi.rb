@@ -5,8 +5,15 @@
 cookbook_file "/etc/modules" do
   source "etc/modules"
   owner  "root"
-  user   "root"
+  group  "root"
   mode   0644
+end
+
+# Directories
+directory "/home/pi/homepi/tmp/last-room-temps/" do
+  owner "pi"
+  group "pi"
+  recursive true
 end
 
 # Install wiringPi
