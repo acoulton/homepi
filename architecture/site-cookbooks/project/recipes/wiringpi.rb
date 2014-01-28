@@ -32,6 +32,6 @@ deploy "/var/lib/wiringPi" do
   purge_before_symlink []
   
   # Trigger the build after the deploy completes
-  notifies :execute, "execute[/var/lib/wiringPi/build]"
+  notifies :execute, "execute[/var/lib/wiringPi/current/build]"
 end
   
