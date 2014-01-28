@@ -14,3 +14,4 @@ include_recipe "project::wiringpi"
 
 # Install python stuff
 include_recipe "project::python_modules"
+include_recipe "project::crons"
